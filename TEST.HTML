@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UC Davis Agency Roster</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; /* Off-white background */
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header img {
+            width: 150px;
+        }
+
+        .header h1 {
+            font-size: 1.5rem;
+            text-align: right;
+            color: #FFB511; /* UC Davis yellow */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            color: #002855; /* UC Davis blue */
+        }
+
+        th {
+            background-color: #002855; /* UC Davis blue */
+            color: white;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #002855; /* UC Davis blue */
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .form-row label {
+            width: 150px;
+        }
+
+        .form-row input {
+            width: calc(100% - 160px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button, .delete-button {
+            background-color: #002855; /* UC Davis blue */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover, .delete-button:hover {
+            background-color: #1e4d92;
+        }
+
+        .delete-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .delete-button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .form-title {
+            margin-top: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #FFB511; /* UC Davis yellow */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="https://brandguide.ucdavis.edu/sites/g/files/dgvnsk626/files/styles/panopoly_image_original/public/images/wordmark-cpe-primary-rgb-web.png" alt="UC Davis Logo">
+        <h1>Agency Roster</h1>
+    </div>
+
+    <form action="https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt" method="POST">
+        <div class="form-section">
+            <h2 class="form-title">Course Details</h2>
+            <div class="form-row">
+                <label for="courseName">Course Name:</label>
+                <input type="text" id="courseName" name="courseName" required>
+            </div>
+
+            <div class="form-row">
+                <label for="instructor">Instructor:</label>
+                <input type="text" id="instructor" name="instructor" required>
+            </div>
+
+            <div class="form-row">
+                <label for="sectionNumber">Section Number:</label>
+                <input type="text" id="sectionNumber" name="sectionNumber" required>
+            </div>
+
+            <div class="form-row">
+                <label for="agency">Agency:</label>
+                <input type="text" id="agency" name="agency" required>
+            </div>
+
+            <div class="form-row">
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="form-row">
+                <label for="courseHours">Course Hours:</label>
+                <input type="text" id="courseHours" name="courseHours" required>
+            </div>
+        </div>
+
+        <div class="form-section">
+            <h2 class="form-title">Student Roster</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Work Email Address</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="studentFields">
+                    <tr>
+                        <td class="student-number">1</td>
+                        <td><input type="text" name="firstName[]" required></td>
+                        <td><input type="text" name="lastName[]" required></td>
+                        <td><input type="email" name="email[]" required></td>
+                        <td><button type="button" class="delete-button" onclick="deleteRow(this)">
+                            <img src="https://img.icons8.com/ios-filled/50/000000/trash.png" alt="Delete">
+                        </button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <button type="button" onclick="addStudent()">Add Another Student</button>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        function addStudent() {
+            const studentFields = `
+                <tr>
+                    <td class="student-number"></td>
+                    <td><input type="text" name="firstName[]" required></td>
+                    <td><input type="text" name="lastName[]" required></td>
+                    <td><input type="email" name="email[]" required></td>
+                    <td><button type="button" class="delete-button" onclick="deleteRow(this)">
+                        <img src="https://img.icons8.com/ios-filled/50/000000/trash.png" alt="Delete">
+                    </button></td>
+                </tr>
+            `;
+            const tbody = document.getElementById('studentFields');
+            tbody.insertAdjacentHTML('beforeend', studentFields);
+            updateStudentNumbers();
+        }
+
+        function deleteRow(button) {
+            const row = button.parentNode.parentNode;
+            row.remove();
+            updateStudentNumbers();
+        }
+
+        function updateStudentNumbers() {
+            const rows = document.querySelectorAll('#studentFields tr');
+            rows.forEach((row, index) => {
+                row.querySelector('.student-number').textContent = index + 1;
+            });
+        }
+    </script>
+
+</body>
+</html>
