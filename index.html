@@ -122,6 +122,25 @@
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
+
+        /* Style for the Submit button */
+        .submit-button {
+            background-color: #FFB511; /* UC Davis yellow */
+            color: #002855; /* UC Davis blue */
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto; /* Center the button */
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #ffcf5a; /* Slightly darker yellow for hover */
+        }
     </style>
 </head>
 <body>
@@ -192,7 +211,9 @@
         </div>
 
         <button type="button" onclick="addStudent()">Add Another Student</button>
-        <input type="submit" value="Submit">
+
+        <!-- Stylish submit button -->
+        <input type="submit" class="submit-button" value="Submit">
     </form>
 
     <script>
