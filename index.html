@@ -17,22 +17,27 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background-color: #002855; /* UC Davis blue */
+            padding: 15px;
+            border-radius: 8px;
         }
 
         .header img {
-            width: 150px;
+            width: 250px; /* Larger logo */
         }
 
         .header h1 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             text-align: right;
             color: #FFB511; /* UC Davis yellow */
+            margin: 0;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for table */
         }
 
         table, th, td {
@@ -40,7 +45,7 @@
         }
 
         th, td {
-            padding: 8px;
+            padding: 12px;
             text-align: left;
             color: #002855; /* UC Davis blue */
         }
@@ -104,16 +109,25 @@
 
         .form-title {
             margin-top: 30px;
-            font-size: 1.2rem;
+            font-size: 1.5rem; /* Slightly larger title */
             font-weight: bold;
             color: #FFB511; /* UC Davis yellow */
+            text-align: left;
+        }
+
+        /* Additional spacing and styling for a cleaner look */
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
 
     <div class="header">
-        <img src="images.png" alt="UC Davis Logo" style="width: 200px;">
+        <img src="images.png" alt="UC Davis Logo">
         <h1>Agency Roster</h1>
     </div>
 
