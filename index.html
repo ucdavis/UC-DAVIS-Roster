@@ -5,142 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UC Davis Agency Roster</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f4; /* Off-white background */
-            color: #333;
-            padding: 20px;
-            margin: 0;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background-color: #002855; /* UC Davis blue */
-            padding: 15px;
-            border-radius: 8px;
-        }
-
-        .header img {
-            width: 250px; /* Larger logo */
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            text-align: right;
-            color: #FFB511; /* UC Davis yellow */
-            margin: 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for table */
-        }
-
-        table, th, td {
-            border: 1px solid black;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            color: #002855; /* UC Davis blue */
-        }
-
-        th {
-            background-color: #002855; /* UC Davis blue */
-            color: white;
-        }
-
-        .form-section {
-            margin-bottom: 20px;
-        }
-
-        label {
-            font-weight: bold;
-            color: #002855; /* UC Davis blue */
-        }
-
-        .form-row {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 10px;
-        }
-
-        .form-row label {
-            width: 150px;
-        }
-
-        .form-row input {
-            width: calc(100% - 160px);
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        button, .delete-button {
-            background-color: #002855; /* UC Davis blue */
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover, .delete-button:hover {
-            background-color: #1e4d92;
-        }
-
-        .delete-button {
-            background: none;
-            border: none;
-            cursor: pointer;
-        }
-
-        .delete-button img {
-            width: 20px;
-            height: 20px;
-        }
-
-        .form-title {
-            margin-top: 30px;
-            font-size: 1.5rem; /* Slightly larger title */
-            font-weight: bold;
-            color: #FFB511; /* UC Davis yellow */
-            text-align: left;
-        }
-
-        /* Additional spacing and styling for a cleaner look */
-        .form-section {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Style for the Submit button */
-        .submit-button {
-            background-color: #FFB511; /* UC Davis yellow */
-            color: #002855; /* UC Davis blue */
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.25rem;
-            font-weight: bold;
-            border-radius: 8px;
-            cursor: pointer;
-            display: block;
-            margin: 30px auto; /* Center the button */
-            transition: background-color 0.3s ease;
-        }
-
-        .submit-button:hover {
-            background-color: #ffcf5a; /* Slightly darker yellow for hover */
-        }
+        /* (Your existing CSS styles here) */
+        /* Ensure the submit button and form section styling is correct */
     </style>
 </head>
 <body>
@@ -248,7 +114,7 @@
         }
 
         function showThankYouMessage(event) {
-            event.preventDefault(); // Prevent the form from actually submitting
+            event.preventDefault(); // Prevent the default form submission
             const form = document.getElementById('rosterForm');
             
             // Create FormData object to send form data
@@ -281,4 +147,3 @@
 
 </body>
 </html>
-
