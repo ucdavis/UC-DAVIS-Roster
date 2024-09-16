@@ -150,7 +150,7 @@
         <h1>Agency Roster</h1>
     </div>
 
-    <form id="rosterForm" action="https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt" method="POST" onsubmit="showThankYouMessage(event)">
+    <form action="https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt" method="POST">
         <div class="form-section">
             <h2 class="form-title">Course Details</h2>
             <div class="form-row">
@@ -246,39 +246,7 @@
                 row.querySelector('.student-number').textContent = index + 1;
             });
         }
-
-        function showThankYouMessage(event) {
-            event.preventDefault(); // Prevent the form from actually submitting
-            const form = document.getElementById('rosterForm');
-            
-            // Create FormData object to send form data
-            const formData = new FormData(form);
-
-            // Submit the form data using Fetch API
-            fetch(form.action, {
-                method: 'POST',
-                body: formData
-            }).then(response => {
-                if (response.ok) {
-                    // If submission is successful, show thank you message
-                    document.body.innerHTML = `
-                        <div style="text-align: center; padding: 50px;">
-                            <h1 style="color: #002855;">Thank You!</h1>
-                            <p style="font-size: 1.25rem; color: #666;">Your submission has been received.</p>
-                        </div>
-                    `;
-                } else {
-                    // Handle error case
-                    alert('There was an error submitting the form. Please try again.');
-                }
-            }).catch(error => {
-                // Handle network errors
-                console.error('Error submitting form:', error);
-                alert('There was an error submitting the form. Please try again.');
-            });
-        }
     </script>
 
 </body>
 </html>
-
