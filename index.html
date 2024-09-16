@@ -5,8 +5,142 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UC Davis Agency Roster</title>
     <style>
-        /* (Your existing CSS styles here) */
-        /* Ensure the submit button and form section styling is correct */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f4; /* Off-white background */
+            color: #333;
+            padding: 20px;
+            margin: 0;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #002855; /* UC Davis blue */
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .header img {
+            width: 250px; /* Larger logo */
+        }
+
+        .header h1 {
+            font-size: 2rem;
+            text-align: right;
+            color: #FFB511; /* UC Davis yellow */
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for table */
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            color: #002855; /* UC Davis blue */
+        }
+
+        th {
+            background-color: #002855; /* UC Davis blue */
+            color: white;
+        }
+
+        .form-section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            color: #002855; /* UC Davis blue */
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .form-row label {
+            width: 150px;
+        }
+
+        .form-row input {
+            width: calc(100% - 160px);
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button, .delete-button {
+            background-color: #002855; /* UC Davis blue */
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover, .delete-button:hover {
+            background-color: #1e4d92;
+        }
+
+        .delete-button {
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .delete-button img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .form-title {
+            margin-top: 30px;
+            font-size: 1.5rem; /* Slightly larger title */
+            font-weight: bold;
+            color: #FFB511; /* UC Davis yellow */
+            text-align: left;
+        }
+
+        /* Additional spacing and styling for a cleaner look */
+        .form-section {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Style for the Submit button */
+        .submit-button {
+            background-color: #FFB511; /* UC Davis yellow */
+            color: #002855; /* UC Davis blue */
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto; /* Center the button */
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-button:hover {
+            background-color: #ffcf5a; /* Slightly darker yellow for hover */
+        }
     </style>
 </head>
 <body>
@@ -16,7 +150,7 @@
         <h1>Agency Roster</h1>
     </div>
 
-    <form id="rosterForm" action="https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt" method="POST" onsubmit="showThankYouMessage(event)">
+    <form action="https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt" method="POST">
         <div class="form-section">
             <h2 class="form-title">Course Details</h2>
             <div class="form-row">
@@ -84,7 +218,7 @@
 
     <script>
         function addStudent() {
-            const studentFields = `
+            const studentFields = 
                 <tr>
                     <td class="student-number"></td>
                     <td><input type="text" name="firstName[]" required></td>
@@ -94,7 +228,7 @@
                         <img src="https://img.icons8.com/ios-filled/50/000000/trash.png" alt="Delete">
                     </button></td>
                 </tr>
-            `;
+            ;
             const tbody = document.getElementById('studentFields');
             tbody.insertAdjacentHTML('beforeend', studentFields);
             updateStudentNumbers();
@@ -110,37 +244,6 @@
             const rows = document.querySelectorAll('#studentFields tr');
             rows.forEach((row, index) => {
                 row.querySelector('.student-number').textContent = index + 1;
-            });
-        }
-
-        function showThankYouMessage(event) {
-            event.preventDefault(); // Prevent the default form submission
-            const form = document.getElementById('rosterForm');
-            
-            // Create FormData object to send form data
-            const formData = new FormData(form);
-
-            // Submit the form data using Fetch API
-            fetch(form.action, {
-                method: 'POST',
-                body: formData
-            }).then(response => {
-                if (response.ok) {
-                    // If submission is successful, show thank you message
-                    document.body.innerHTML = `
-                        <div style="text-align: center; padding: 50px;">
-                            <h1 style="color: #002855;">Thank You!</h1>
-                            <p style="font-size: 1.25rem; color: #666;">Your form has been submitted successfully.</p>
-                        </div>
-                    `;
-                } else {
-                    // Handle error case
-                    alert('There was an error submitting the form. Please try again.');
-                }
-            }).catch(error => {
-                // Handle network errors
-                console.error('Error submitting form:', error);
-                alert('There was an error submitting the form. Please try again.');
             });
         }
     </script>
