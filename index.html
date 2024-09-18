@@ -141,6 +141,18 @@
         .submit-button:hover {
             background-color: #ffcf5a; /* Slightly darker yellow for hover */
         }
+
+        /* Thank you message styling */
+        #thankYouMessage {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            background-color: #FFB511;
+            color: #002855;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -150,7 +162,8 @@
         <h1>Agency Roster</h1>
     </div>
 
-    <form action="https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt" method="POST">
+    <!-- Form for submitting course and student data -->
+    <form id="rosterForm">
         <div class="form-section">
             <h2 class="form-title">Course Details</h2>
             <div class="form-row">
@@ -216,7 +229,13 @@
         <input type="submit" class="submit-button" value="Submit">
     </form>
 
+    <!-- Thank you message -->
+    <div id="thankYouMessage">
+        Thank you for submitting!
+    </div>
+
     <script>
+        // Add student function
         function addStudent() {
             const studentFields = `
                 <tr>
@@ -234,19 +253,57 @@
             updateStudentNumbers();
         }
 
+        // Delete row function
         function deleteRow(button) {
             const row = button.parentNode.parentNode;
             row.remove();
             updateStudentNumbers();
         }
 
+        // Update student numbers
         function updateStudentNumbers() {
             const rows = document.querySelectorAll('#studentFields tr');
             rows.forEach((row, index) => {
                 row.querySelector('.student-number').textContent = index + 1;
             });
         }
-    </script>
 
+        // Handle form submission with JavaScript
+        document.getElementById('rosterForm').onsubmit = function(event) {
+            event.preventDefault(); // Prevent default form submission behavior
+
+            // Show thank you message
+            document.getElementById('thankYouMessage').style.display = 'block';
+
+            // Hide the form
+            document.getElementById('rosterForm').style.display = 'none';
+
+            // Send the form data to Airtable via fetch API
+            const formData = new FormData(event.target);
+            const jsonData = {};
+
+            formData.forEach((value, key) => {
+                if (!jsonData[key]) {
+                    jsonData[key] = [];
+                }
+                jsonData[key].push(value);
+            });
+
+            fetch('https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        };
+    </script>
 </body>
 </html>
