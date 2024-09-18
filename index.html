@@ -268,42 +268,62 @@
             });
         }
 
-        // Handle form submission with JavaScript
-        document.getElementById('rosterForm').onsubmit = function(event) {
-            event.preventDefault(); // Prevent default form submission behavior
+document.getElementById('rosterForm').onsubmit = function(event) {
+    event.preventDefault(); // Prevent default form submission behavior
 
-            // Show thank you message
-            document.getElementById('thankYouMessage').style.display = 'block';
+    // Show thank you message
+    document.getElementById('thankYouMessage').style.display = 'block';
 
-            // Hide the form
-            document.getElementById('rosterForm').style.display = 'none';
+    // Hide the form
+    document.getElementById('rosterForm').style.display = 'none';
 
-            // Send the form data to Airtable via fetch API
-            const formData = new FormData(event.target);
-            const jsonData = {};
+    // Prepare form data
+    const formData = new FormData(event.target);
+    const jsonData = {
+        courseName: formData.get('courseName'),
+        instructor: formData.get('instructor'),
+        sectionNumber: formData.get('sectionNumber'),
+        agency: formData.get('agency'),
+        date: formData.get('date'),
+        courseHours: formData.get('courseHours'),
+        students: [] // Array to hold students' data
+    };
 
-            formData.forEach((value, key) => {
-                if (!jsonData[key]) {
-                    jsonData[key] = [];
-                }
-                jsonData[key].push(value);
-            });
+    // Process student data
+    const firstNames = formData.getAll('firstName[]');
+    const lastNames = formData.getAll('lastName[]');
+    const emails = formData.getAll('email[]');
 
-            fetch("https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(jsonData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
-        };
+    firstNames.forEach((firstName, index) => {
+        jsonData.students.push({
+            firstName: firstName,
+            lastName: lastNames[index],
+            email: emails[index]
+        });
+    });
+
+    // Send the form data to Airtable via fetch API
+    fetch("https://hooks.airtable.com/workflows/v1/genericWebhook/appvryBlsEagAK8Eh/wflTiW8FMo9xbXMPV/wtrQACXmbOpxhpOGt", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(jsonData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+    });
+};
+
     </script>
 </body>
 </html>
