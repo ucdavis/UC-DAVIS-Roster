@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Packet Template</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+        }
+        .container {
+            width: 500px; /* Slightly wider */
+            border: 2px solid black;
+            margin: 20px auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: left;
+            padding-left: 5px;
+        }
+        .box {
+            border: 2px solid black;
+            padding: 5px 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .dynamic-field {
+            text-align: left;
+            font-size: 18px;
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+        .section-header {
+            background-color: lightgray;
+            font-weight: bold;
+            padding: 5px;
+            text-align: left;
+            font-size: 16px;
+            border: 1px solid black;
+        }
+        .date-time-county {
+            padding-left: 30px;
+        }
+        .box-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+        .box-footer span {
+            font-weight: bold;
+        }
+        hr {
+            border: 0;
+            border-top: 2px solid black;
+            margin: 10px 0;
+        }
+        .box-number {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">CONTENTS:</div>
+        <div class="box">
+            <div class="dynamic-field">
+                «Actual_Name»
+                <br>
+                «Instructor», Instructor
+            </div>
+            <hr>
+            <div class="section-header">Custom Section # «Section_Number»</div>
+            <div class="dynamic-field date-time-county">
+                «Start_Date» | «Time_of_Course»
+                <br>
+                «County» County
+            </div>
+            <div class="box-footer">
+                <div class="box-number">Box ______ of ______</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="header">CONTENTS:</div>
+        <div class="box">
+            <div class="dynamic-field">
+                «Actual_Name»
+                <br>
+                «Instructor», Instructor
+            </div>
+            <hr>
+            <div class="section-header">Custom Section # «Section_Number»</div>
+            <div class="dynamic-field date-time-county">
+                «Start_Date» | «Time_of_Course»
+                <br>
+                «County» County
+            </div>
+            <div class="box-footer">
+                <div class="box-number">Box ______ of ______</div>
+            </div>
+        </div>
+    </div>
+<style>
+    @media print {
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        /* Additional styles to ensure content fits properly */
+    }
+</style>
+
+</body>
+</html>
