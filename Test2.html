@@ -129,7 +129,7 @@
         <div class="info-section"> <!-- Added the info-section class here -->
             <div class="info-layout info-row to-section"> <!-- Added the to-section class for extra spacing -->
                 <div class="info-label">TO:</div>
-                <div class="info-value"><strong>Fresno County</strong></div> <!-- Updated placeholder -->
+                <div class="info-value"><strong><<County>></strong></div> <!-- Updated placeholder -->
             </div>
             <div class="info-layout info-row">
                 <div class="info-label">FROM:</div>
@@ -140,31 +140,29 @@
                 <div class="info-value">Center for Human Services</div>
             </div>
 
-            <!-- Added line space after FROM section -->
-            <div style="margin-bottom: 10px;"></div> <!-- Adjust margin as needed -->
+            <div style="margin-bottom: 10px;"></div> <!-- Added line space after FROM section -->
 
             <div class="info-layout info-row">
                 <div class="info-label">RE:</div>
-                <div class="info-value"><strong>[object Object]</strong></div> <!-- Updated placeholder -->
+                <div class="info-value"><strong><<Actual_Name>></strong></div> <!-- Updated placeholder -->
             </div>
             <div class="info-layout info-row">
                 <div class="info-label"></div>
-                <div class="info-value"><strong>2023-10-12</strong></div> <!-- Updated placeholder -->
+                <div class="info-value"><strong><<Start_Date>></strong></div> <!-- Updated placeholder -->
             </div>
             <div class="info-layout info-row">
                 <div class="info-label"></div>
-                <div class="info-value"><strong>[object Object], [object Object], Instructor</strong></div> <!-- Updated placeholder -->
+                <div class="info-value"><strong><<Section_Number>>, <<Instructor>> Instructor</strong></div> <!-- Updated placeholder -->
             </div>
         </div>
 
-        <!-- New section with added spacing and bold formatting -->
         <p class="form-instructions">Enclosed:</p> <!-- Moved "Enclosed" section here -->
         <div class="enclosed">
             <div class="column">
                 <table class="table">
                     <tr>
-                        <td><strong>35</strong></td> <!-- Updated placeholder -->
-                        <td>Workshop handouts</td> <!-- Removed line under these words -->
+                        <td><strong><<Projected_Enrollments>></strong></td> <!-- Updated placeholder -->
+                        <td>Workshop handouts</td>
                     </tr>
                     <tr>
                         <td>1</td>
@@ -175,20 +173,20 @@
                         <td>Section name tent</td>
                     </tr>
                     <tr>
-                        <td><strong>10</strong></td> <!-- Updated placeholder -->
-                        <td>Name placards</td> <!-- Removed line under these words -->
+                        <td><strong><<Projected_Enrollments>></strong></td> <!-- Updated placeholder -->
+                        <td>Name placards</td>
                     </tr>
                 </table>
             </div>
             <div class="column">
                 <table class="table">
                     <tr>
-                        <td><strong>10</strong></td> <!-- Updated placeholder -->
-                        <td>Registration forms</td> <!-- Removed line under these words -->
+                        <td><strong><<Projected_Enrollments>></strong></td> <!-- Updated placeholder -->
+                        <td>Registration forms</td>
                     </tr>
                     <tr>
-                        <td><strong>10</strong></td> <!-- Updated placeholder -->
-                        <td>Evaluation forms</td> <!-- Removed line under these words -->
+                        <td><strong><<Projected_Enrollments>></strong></td> <!-- Updated placeholder -->
+                        <td>Evaluation forms</td>
                     </tr>
                     <tr>
                         <td>1</td>
@@ -207,7 +205,6 @@
         <p>Participants should complete the enclosed registration and evaluation forms using pens or pencils. Trainers will instruct the participants about how to complete the forms.</p>
         <p>Please return <strong>ALL</strong> the above forms to our office within one week of the workshop completion using the enclosed envelope. Return any unused forms and books and recycle any unused handouts.</p>
 
-        <!-- Align "Mail to:" and address in the same line, with proper space -->
         <div class="mail-layout">
             <div class="mail-to">Mail to:</div>
             <div class="mail-address address"> <!-- Added the address class here -->
@@ -224,4 +221,14 @@
             <p>Phone: (530) 757-8643</p>
         </div>
     </div>
-    <style
+    <style>
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+
+</body>
+</html>
