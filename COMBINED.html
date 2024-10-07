@@ -1,9 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined HTML for Printing</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 20mm;
+        }
 
-<p>Course Name: [object Object]</p>
-<p>Start Date: 2023-07-12</p>
-<p>Time of Course: null</p>
-<p>County: </p>
-<p>Instructor: [object Object]</p>
-<p>Projected Enrollments: 35</p>
-<p>Section Number: [object Object]</p>
-<p>Location: Zoom Instruction</p>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 297mm; /* Set height to A4 page size */
+            page-break-after: always; /* Ensures each iframe goes to a new page */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%; /* Ensures iframe takes up the full container height */
+            border: none;
+        }
+
+        @media print {
+            .iframe-container {
+                height: 297mm; /* Ensure each iframe is printed on its own page with full A4 size */
+            }
+            
+            iframe {
+                height: 100%; /* Ensure full content is visible during printing */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- First HTML file -->
+    <div class="iframe-container">
+        <iframe src="C:\Users\hsimran\OneDrive - University of California, Davis\Documents\SHIPPING PACKET\Combined\Test1.html"></iframe> <!-- Replace with your first HTML file -->
+    </div>
+
+    <!-- Second HTML file -->
+    <div class="iframe-container">
+        <iframe src="C:\Users\hsimran\OneDrive - University of California, Davis\Documents\SHIPPING PACKET\Combined\Test2.html"></iframe> <!-- Replace with your second HTML file -->
+    </div>
+
+    <!-- Additional HTML files -->
+    <div class="iframe-container">
+        <iframe src="C:\Users\hsimran\OneDrive - University of California, Davis\Documents\SHIPPING PACKET\Combined\Test3.html"></iframe> <!-- Replace with your third HTML file -->
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="C:\Users\hsimran\OneDrive - University of California, Davis\Documents\SHIPPING PACKET\Combined\Test4.html"></iframe> <!-- Replace with your third HTML file -->
+    </div>
+
+    <div class="iframe-container">
+        <iframe src="C:\Users\hsimran\OneDrive - University of California, Davis\Documents\SHIPPING PACKET\Combined\Test5.html"></iframe> <!-- Replace with your third HTML file -->
+    </div>
+
+</body>
+</html>
