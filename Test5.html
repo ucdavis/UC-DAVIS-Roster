@@ -29,18 +29,20 @@
 </head>
 <body>
     <div class="container">
-        <div class="vertical-text">Mary Orr</div>  <!-- Updated placeholder for instructor -->
-        <div class="vertical-text">231FRE814</div>  <!-- Updated placeholder for section number -->
+        <div class="vertical-text"><<Instructor>></div>  <!-- Placeholder for instructor name -->
+        <div class="vertical-text"><<Instructor>></div>  <!-- Placeholder for instructor name -->
     </div>
-    <style>
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-            }
-            /* Additional styles to ensure content fits properly */
-        }
-    </style>
 
+    <script>
+        // This function will be called to update the HTML content with data from Airtable
+        function updateContent(courseData) {
+            const instructorName = courseData.instructor; // Get the instructor name
+            const verticalTexts = document.querySelectorAll('.vertical-text');
+
+            verticalTexts.forEach(text => {
+                text.innerText = instructorName; // Update both placeholders with the instructor's name
+            });
+        }
+    </script>
 </body>
 </html>
