@@ -27,7 +27,7 @@
         /* Rotate text facing towards the end of the page */
         .large-text-left {
             position: absolute;
-            top: 50%;
+            top: 40%; /* Adjusted to avoid overlap */
             left: 20px;
             transform: translateY(-50%) rotate(90deg); /* Rotated to face towards the end of the page */
             font-size: 80px;
@@ -37,7 +37,7 @@
 
         .large-text-right {
             position: absolute;
-            top: 50%;
+            top: 40%; /* Adjusted to avoid overlap */
             right: 20px;
             transform: translateY(-50%) rotate(-90deg); /* Rotated to face towards the end of the page */
             font-size: 80px;
@@ -47,7 +47,7 @@
 
         .small-text-left {
             position: absolute;
-            top: 50%;
+            top: 60%; /* Adjusted to avoid overlap */
             left: 120px;
             transform: translateY(-50%) rotate(90deg); /* Rotated to face towards the end of the page */
             font-size: 24px;
@@ -55,7 +55,7 @@
 
         .small-text-right {
             position: absolute;
-            top: 50%;
+            top: 60%; /* Adjusted to avoid overlap */
             right: 120px;
             transform: translateY(-50%) rotate(-90deg); /* Rotated to face towards the end of the page */
             font-size: 24px;
@@ -87,21 +87,21 @@
 <body>
     <div class="container">
         <!-- Left side large and small text -->
-        <div class="large-text-left">231FRE814</div>  <!-- Updated placeholder -->
+        <div class="large-text-left"><<Section_Number>></div>  <!-- Placeholder for section number -->
         <div class="small-text-left">Your section number</div>
 
         <!-- Right side large and small text -->
-        <div class="large-text-right">231FRE814</div>  <!-- Updated placeholder -->
+        <div class="large-text-right"><<Section_Number>></div>  <!-- Placeholder for section number -->
         <div class="small-text-right">Your section number</div>
     </div>
-    <style>
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-            }
+    
+    <script>
+        // This function will be called to update the HTML content with data from Airtable
+        function updateContent(courseData) {
+            document.querySelector('.large-text-left').innerText = courseData.sectionNumber;
+            document.querySelector('.large-text-right').innerText = courseData.sectionNumber;
         }
-    </style>
+    </script>
 
 </body>
 </html>
