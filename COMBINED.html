@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -56,32 +56,32 @@
 
     <!-- First HTML file -->
     <div class="iframe-container">
-        <iframe id="iframe1" src="Test1.html"></iframe> <!-- Ensure Test1.html is in the same folder -->
+        <iframe id="iframe1" src="Test1.html?nocache=<?php echo time(); ?>"></iframe>
     </div>
 
     <!-- Second HTML file -->
     <div class="iframe-container">
-        <iframe id="iframe2" src="Test2.html"></iframe> <!-- Ensure Test2.html is in the same folder -->
+        <iframe id="iframe2" src="Test2.html?nocache=<?php echo time(); ?>"></iframe>
     </div>
 
     <!-- Third HTML file -->
     <div class="iframe-container">
-        <iframe id="iframe3" src="Test3.html"></iframe> <!-- Ensure Test3.html is in the same folder -->
+        <iframe id="iframe3" src="Test3.html?nocache=<?php echo time(); ?>"></iframe>
     </div>
 
     <!-- Fourth HTML file -->
     <div class="iframe-container">
-        <iframe id="iframe4" src="Test4.html"></iframe> <!-- Ensure Test4.html is in the same folder -->
+        <iframe id="iframe4" src="Test4.html?nocache=<?php echo time(); ?>"></iframe>
     </div>
 
     <!-- Fifth HTML file -->
     <div class="iframe-container">
-        <iframe id="iframe5" src="Test5.html"></iframe> <!-- Ensure Test5.html is in the same folder -->
+        <iframe id="iframe5" src="Test5.html?nocache=<?php echo time(); ?>"></iframe>
     </div>
 
     <script>
-        document.getElementById("clearButton").addEventListener("click", function() {
-            // Access each iframe
+        // Function to clear placeholders
+        function clearPlaceholders() {
             const iframes = [
                 document.getElementById("iframe1").contentWindow.document,
                 document.getElementById("iframe2").contentWindow.document,
@@ -97,6 +97,23 @@
                     element.value = "";  // Clear the value of elements with placeholders
                 });
             });
+        }
+
+        // Wait for all iframes to load before clearing placeholders
+        document.getElementById("iframe1").onload = function() {
+            document.getElementById("iframe2").onload = function() {
+                document.getElementById("iframe3").onload = function() {
+                    document.getElementById("iframe4").onload = function() {
+                        document.getElementById("iframe5").onload = function() {
+                            clearPlaceholders();
+                        };
+                    };
+                };
+            };
+        };
+
+        document.getElementById("clearButton").addEventListener("click", function() {
+            clearPlaceholders(); // Trigger clearing placeholders when button is clicked
         });
     </script>
 </body>
