@@ -1,31 +1,20 @@
-name: pages-build-deployment
+name: Deploy GitHub Pages
 
 on:
   push:
     branches:
-      - main  # Adjust if deploying from a different branch
+      - main  # Trigger deployment on push to the main branch
 
 jobs:
-  build:
+  build-deploy:
     runs-on: ubuntu-latest
 
-    concurrency:
-      group: pages-deployment
-      cancel-in-progress: true  # Ensure only one deployment runs at a time
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      # Add build steps if required, such as npm install and build commands
-      - name: Install dependencies
-        run: npm install  # Only if you need to install dependencies (e.g., for static site generators)
-      - name: Build the site
-        run: npm run build  # Use your specific build command here
-
-      # Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist  # Replace this with the correct folder where your HTML files are
+    - name: Build and deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
+        publish_dir: ./  # Root directory, where COMBINED.html is located
