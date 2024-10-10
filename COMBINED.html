@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -37,33 +37,67 @@
                 height: 100%; /* Ensure full content is visible during printing */
             }
         }
+
+        /* Button styling */
+        #clearButton {
+            margin: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f44336;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
+    <button id="clearButton">Clear All Placeholders</button>
+
     <!-- First HTML file -->
     <div class="iframe-container">
-        <iframe src="Test1.html"></iframe> <!-- Ensure Test1.html is in the same folder -->
+        <iframe id="iframe1" src="Test1.html"></iframe> <!-- Ensure Test1.html is in the same folder -->
     </div>
 
     <!-- Second HTML file -->
     <div class="iframe-container">
-        <iframe src="Test2.html"></iframe> <!-- Ensure Test2.html is in the same folder -->
+        <iframe id="iframe2" src="Test2.html"></iframe> <!-- Ensure Test2.html is in the same folder -->
     </div>
 
     <!-- Third HTML file -->
     <div class="iframe-container">
-        <iframe src="Test3.html"></iframe> <!-- Ensure Test3.html is in the same folder -->
+        <iframe id="iframe3" src="Test3.html"></iframe> <!-- Ensure Test3.html is in the same folder -->
     </div>
 
     <!-- Fourth HTML file -->
     <div class="iframe-container">
-        <iframe src="Test4.html"></iframe> <!-- Ensure Test4.html is in the same folder -->
+        <iframe id="iframe4" src="Test4.html"></iframe> <!-- Ensure Test4.html is in the same folder -->
     </div>
 
     <!-- Fifth HTML file -->
     <div class="iframe-container">
-        <iframe src="Test5.html"></iframe> <!-- Ensure Test5.html is in the same folder -->
+        <iframe id="iframe5" src="Test5.html"></iframe> <!-- Ensure Test5.html is in the same folder -->
     </div>
 
+    <script>
+        document.getElementById("clearButton").addEventListener("click", function() {
+            // Access each iframe
+            const iframes = [
+                document.getElementById("iframe1").contentWindow.document,
+                document.getElementById("iframe2").contentWindow.document,
+                document.getElementById("iframe3").contentWindow.document,
+                document.getElementById("iframe4").contentWindow.document,
+                document.getElementById("iframe5").contentWindow.document
+            ];
+
+            // Loop through each iframe and clear placeholders
+            iframes.forEach(iframe => {
+                const placeholders = iframe.querySelectorAll("[placeholder]");
+                placeholders.forEach(element => {
+                    element.value = "";  // Clear the value of elements with placeholders
+                });
+            });
+        });
+    </script>
 </body>
 </html>
