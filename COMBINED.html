@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined HTML for Printing</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 20mm;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .iframe-container {
+            width: 100%;
+            height: 297mm; /* Set height to A4 page size */
+            page-break-after: always; /* Ensures each iframe goes to a new page */
+        }
+
+        iframe {
+            width: 100%;
+            height: 100%; /* Ensures iframe takes up the full container height */
+            border: none; /* No border around iframes */
+        }
+
+        @media print {
+            .iframe-container {
+                height: 297mm; /* Ensure each iframe is printed on its own page with full A4 size */
+            }
+            
+            iframe {
+                height: 100%; /* Ensure full content is visible during printing */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- First HTML file -->
+    <div class="iframe-container">
+        <iframe src="Test1.html"></iframe> <!-- Ensure Test1.html is in the same folder -->
+    </div>
+
+    <!-- Second HTML file -->
+    <div class="iframe-container">
+        <iframe src="Test2.html"></iframe> <!-- Ensure Test2.html is in the same folder -->
+    </div>
+
+    <!-- Third HTML file -->
+    <div class="iframe-container">
+        <iframe src="Test3.html"></iframe> <!-- Ensure Test3.html is in the same folder -->
+    </div>
+
+    <!-- Fourth HTML file -->
+    <div class="iframe-container">
+        <iframe src="Test4.html"></iframe> <!-- Ensure Test4.html is in the same folder -->
+    </div>
+
+    <!-- Fifth HTML file -->
+    <div class="iframe-container">
+        <iframe src="Test5.html"></iframe> <!-- Ensure Test5.html is in the same folder -->
+    </div>
+
+</body>
+</html>
