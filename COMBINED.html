@@ -56,38 +56,16 @@
 
     <!-- First HTML file -->
     <div class="iframe-container">
-        <iframe id="iframe1" src="Test1.html?nocache=<?php echo time(); ?>"></iframe>
+        <iframe id="iframe1" src="fivePage.html?nocache=<?php echo time(); ?>"></iframe>
     </div>
 
-    <!-- Second HTML file -->
-    <div class="iframe-container">
-        <iframe id="iframe2" src="Test2.html?nocache=<?php echo time(); ?>"></iframe>
-    </div>
-
-    <!-- Third HTML file -->
-    <div class="iframe-container">
-        <iframe id="iframe3" src="Test3.html?nocache=<?php echo time(); ?>"></iframe>
-    </div>
-
-    <!-- Fourth HTML file -->
-    <div class="iframe-container">
-        <iframe id="iframe4" src="Test4.html?nocache=<?php echo time(); ?>"></iframe>
-    </div>
-
-    <!-- Fifth HTML file -->
-    <div class="iframe-container">
-        <iframe id="iframe5" src="Test5.html?nocache=<?php echo time(); ?>"></iframe>
-    </div>
 
     <script>
         // Function to clear placeholders
         function clearPlaceholders() {
             const iframes = [
-                document.getElementById("iframe1").contentWindow.document,
-                document.getElementById("iframe2").contentWindow.document,
-                document.getElementById("iframe3").contentWindow.document,
-                document.getElementById("iframe4").contentWindow.document,
-                document.getElementById("iframe5").contentWindow.document
+                document.getElementById("iframe1").contentWindow.document
+             
             ];
 
             // Loop through each iframe and clear placeholders
@@ -101,15 +79,9 @@
 
         // Wait for all iframes to load before clearing placeholders
         document.getElementById("iframe1").onload = function() {
-            document.getElementById("iframe2").onload = function() {
-                document.getElementById("iframe3").onload = function() {
-                    document.getElementById("iframe4").onload = function() {
-                        document.getElementById("iframe5").onload = function() {
+
                             clearPlaceholders();
-                        };
-                    };
-                };
-            };
+
         };
 
         document.getElementById("clearButton").addEventListener("click", function() {
