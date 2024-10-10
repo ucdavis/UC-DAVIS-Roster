@@ -1,20 +1,29 @@
-name: Deploy GitHub Pages
+name: GitHub Pages Deployment
 
 on:
   push:
     branches:
-      - main  # Trigger deployment on push to the main branch
+      - main  # Or your default branch
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3  # Updated to v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3  # Ensures you're using a compatible Node.js version
+        with:
+          node-version: '16'  # Or '20' if preferred
 
-    - name: Build and deploy
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}  # GitHub token for authentication
-        publish_dir: ./  # Root directory, where COMBINED.html is located
+      - name: Install dependencies and build site
+        run: |
+          npm install
+          npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4  # Updated to v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public  # Adjust if necessary for your project structure
