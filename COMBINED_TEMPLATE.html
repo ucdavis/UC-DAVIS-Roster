@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined HTML Files</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        section {
+            page-break-before: always;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Common styles for all sections */
+        .container {
+            width: 500px; /* Container width for sections */
+            margin: 20px auto;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        /* Test1.html Styles */
+        .test1-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: left;
+            padding-left: 5px;
+        }
+
+        .test1-box {
+            border: 2px solid black;
+            padding: 5px 10px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        .test1-dynamic-field {
+            font-size: 18px;
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+
+        .test1-section-header {
+            background-color: lightgray;
+            font-weight: bold;
+            padding: 5px;
+            text-align: left;
+            font-size: 16px;
+            border: 1px solid black;
+        }
+
+        .test1-box-footer {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        /* Test2.html Styles */
+        .test2-header img {
+            width: 100%; /* Adjust for header image */
+            max-width: 600px; /* Keep within a reasonable max-width */
+        }
+
+        .test2-content {
+            margin-top: 10px;
+        }
+
+        .test2-info-section {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Test3.html Styles */
+        .test3-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+
+        .test3-logo img {
+            width: 150px;
+        }
+
+        .test3-course-info {
+            text-align: right;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* Table styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        /* Test4.html Styles */
+        .test4-container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .test4-large-text-left {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 80px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .test4-large-text-right {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 80px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .test4-small-text-left {
+            position: absolute;
+            top: 50%;
+            left: 120px;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 24px;
+        }
+
+        .test4-small-text-right {
+            position: absolute;
+            top: 50%;
+            right: 120px;
+            transform: translateY(-50%) rotate(-90deg);
+            font-size: 24px;
+        }
+
+        /* Test5.html Styles */
+        .test5-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .test5-vertical-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 5rem; /* Increased font size */
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        @media print {
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            section {
+                page-break-before: always;
+            }
+
+            /* Print styles for all sections */
+            .container {
+                width: 100%;
+                height: auto; /* Ensure proper height on print */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Test1.html Content -->
+    <section>
+        <div class="container">
+            <div class="test1-header">CONTENTS:</div>
+            <div class="test1-box">
+                <div class="test1-dynamic-field">
+                    <<Actual_Name>>  <!-- Placeholder for actual name -->
+                    <br>
+                    <<Instructor>>, Instructor  <!-- Placeholder for instructor -->
+                </div>
+                <hr>
+                <div class="test1-section-header">Custom Section # <<Section_Number>> </div>
+                <div class="test1-dynamic-field">
+                    <<Start_Date>> | <<Time_of_Course>>  <!-- Placeholders for start date and time of course -->
+                    <br>
+                    <<County>>  <!-- Placeholder for county -->
+                </div>
+                <div class="test1-box-footer">
+                    <div class="box-number">Box ______ of ______</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="test1-header">CONTENTS:</div>
+            <div class="test1-box">
+                <div class="test1-dynamic-field">
+                    <<Actual_Name>>  <!-- Placeholder for actual name -->
+                    <br>
+                    <<Instructor>>, Instructor  <!-- Placeholder for instructor -->
+                </div>
+                <hr>
+                <div class="test1-section-header">Custom Section # <<Section_Number>> </div>
+                <div class="test1-dynamic-field">
+                    <<Start_Date>> | <<Time_of_Course>>  <!-- Placeholders for start date and time of course -->
+                    <br>
+                    <<County>>  <!-- Placeholder for county -->
+                </div>
+                <div class="test1-box-footer">
+                    <div class="box-number">Box ______ of ______</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test2.html Content -->
+    <section>
+        <div class="test2-header">
+            <img src="C:\Users\hsimran\OneDrive - University of California, Davis\Documents\SHIPPING PACKET\Capture.PNG" alt="UC Davis Header">
+        </div>
+
+        <div class="test2-content">
+            <div class="test2-info-section">
+                <div class="info-layout info-row to-section">
+                    <div class="info-label">TO:</div>
+                    <div class="info-value"><strong><<County>></strong></div>
+                </div>
+                <div class="info-layout info-row">
+                    <div class="info-label">FROM:</div>
+                    <div class="info-value"><strong>Vera Isenberg, Program Coordinator</strong></div>
+                </div>
+                <div class="info-layout info-row">
+                    <div class="info-label"></div>
+                    <div class="info-value">Center for Human Services</div>
+                </div>
+
+                <div style="margin-bottom: 10px;"></div>
+
+                <div class="info-layout info-row">
+                    <div class="info-label">RE:</div>
+                    <div class="info-value"><strong><<Actual_Name>></strong></div>
+                </div>
+                <div class="info-layout info-row">
+                    <div class="info-label"></div>
+                    <div class="info-value"><strong><<Start_Date>></strong></div>
+                </div>
+                <div class="info-layout info-row">
+                    <div class="info-label"></div>
+                    <div class="info-value"><strong><<Section_Number>>, <<Instructor>> Instructor</strong></div>
+                </div>
+            </div>
+
+            <p class="form-instructions">Enclosed:</p>
+            <div class="enclosed">
+                <div class="column">
+                    <table class="table">
+                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Workshop handouts</td></tr>
+                        <tr><td>1</td><td>Agency Roster</td></tr>
+                        <tr><td>1</td><td>Section name tent</td></tr>
+                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Name placards</td></tr>
+                    </table>
+                </div>
+                <div class="column">
+                    <table class="table">
+                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Registration forms</td></tr>
+                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Evaluation forms</td></tr>
+                        <tr><td>1</td><td>Business return envelope</td></tr>
+                        <tr><td></td><td>Additional handout</td></tr>
+                    </table>
+                </div>
+            </div>
+
+            <p class="form-instructions">Registration and evaluation form and roster:</p>
+            <p>Participants should complete the enclosed registration and evaluation forms using pens or pencils. Trainers will instruct the participants about how to complete the forms.</p>
+            <p>Please return <strong>ALL</strong> the above forms to our office within one week of the workshop completion using the enclosed envelope. Return any unused forms and books and recycle any unused handouts.</p>
+
+            <div class="mail-layout">
+                <div class="mail-to">Mail to:</div>
+                <div class="mail-address address">
+                    <p>Center for Human Services</p>
+                    <p>UC Davis Continuing and Professional Education</p>
+                    <p>463 California Ave, Room 1130</p>
+                    <p>Davis, CA 95616</p>
+                </div>
+            </div>
+
+            <p>If you have questions, please call me at the above number. Thank you for your assistance.</p>
+
+            <div class="signature">
+                <p>Phone: (530) 757-8643</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test3.html Content -->
+    <section>
+        <div class="header">
+            <div class="test3-logo">
+                <img src="C:\Users\hsimran\OneDrive - University of California, Davis\Documents\SHIPPING PACKET\images.png" alt="UC Davis Logo">
+                <div>Continuing and <br> Professional Education | Human Services</div>
+            </div>
+            <div class="test3-course-info">
+                <div>Course Name: <b> <<Actual_Name>> </b></div>
+                <div>Date: <b> <<Start_Date>> </b></div>
+                <div>Time: <b>  <<Time_of_Course>> </b></div>
+                <div>Instructor: <b> <<Instructor>> </b></div>
+                <div>Location: <b> <<Location>> </b></div>
+                <div>Section #: <b> <<Section_Number>> </b></div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th class="number">#</th>
+                    <th class="name-email">First Name, Last Name <br> E-Mail Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="number">1</td>
+                    <td class="name-email">
+                        <table class="nested-table">
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="number">2</td>
+                    <td class="name-email">
+                        <table class="nested-table">
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                            <tr>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                                <td></td><td></td><td></td><td></td><td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Test4.html Content -->
+    <section>
+        <div class="test4-container">
+            <div class="test4-large-text-left"><<Section_Number>></div>  <!-- Updated placeholder -->
+            <div class="test4-small-text-left">Your section number</div>
+
+            <div class="test4-large-text-right"><<Section_Number>></div>  <!-- Updated placeholder -->
+            <div class="test4-small-text-right">Your section number</div>
+        </div>
+    </section>
+
+    <!-- Test5.html Content -->
+    <section>
+        <div class="test5-container">
+            <div class="test5-vertical-text"><<Instructor>></div>  <!-- Updated placeholder for instructor -->
+            <div class="test5-vertical-text"><<Instructor>></div>  <!-- Updated placeholder for instructor -->
+        </div>
+    </section>
+
+</body>
+</html>
