@@ -125,9 +125,10 @@
             top: 50%;
             left: 20px;
             transform: translateY(-50%) rotate(90deg);
-            font-size: 80px;
+            font-size: 90px;
             font-weight: bold;
             white-space: nowrap;
+            margin-right: 50px; /* Added margin to increase space */
         }
 
         .test4-large-text-right {
@@ -138,22 +139,23 @@
             font-size: 80px;
             font-weight: bold;
             white-space: nowrap;
+            margin-right: 50px; /* Added margin to increase space */
         }
 
         .test4-small-text-left {
             position: absolute;
             top: 50%;
-            left: 120px;
+            left: 150px;
             transform: translateY(-50%) rotate(90deg);
-            font-size: 24px;
+            font-size: 40px;
         }
 
         .test4-small-text-right {
             position: absolute;
             top: 50%;
-            right: 120px;
+            right: 150px;
             transform: translateY(-50%) rotate(-90deg);
-            font-size: 24px;
+            font-size: 40px;
         }
 
         /* Test5.html Styles */
@@ -172,23 +174,46 @@
             font-family: 'Times New Roman', serif;
             font-weight: bold;
         }
-
-        @media print {
-            body {
-                margin: 0;
-                padding: 0;
-            }
-
-            section {
-                page-break-before: always;
-            }
-
-            /* Print styles for all sections */
-            .container {
-                width: 100%;
-                height: auto; /* Ensure proper height on print */
-            }
+        .test5-vertical-text-right {
+    writing-mode: vertical-rl; /* For the right-side text */
+    text-orientation: mixed;    /* Orientation for mixed text */
+    font-size: 5rem;           /* Font size */
+    font-family: 'Times New Roman', serif; /* Font family */
+    font-weight: bold;         /* Bold text */
+    transform: rotate(180deg); /* Rotate right side text 180 degrees */
+}
+@media print {
+        /* Remove all padding and margin to eliminate extra spaces */
+        body, section {
+            margin: 0;
+            padding: 0;
+            height: auto;
         }
+
+
+
+        /* Specifically control Test4 and Test5 */
+        section.test4-container, 
+        section.test5-container {
+            page-break-before: avoid; /* Prevent a page break before */
+            page-break-after: avoid;  /* Prevent a page break after */
+            page-break-inside: avoid; /* Prevent content from splitting */
+            margin-bottom: 0; /* Remove any extra space at the bottom */
+            height: auto;
+        }
+
+        /* Force the last section to not trigger a new page */
+        section:last-child {
+            page-break-after: avoid; /* Avoid any page break after the last section */
+            margin-bottom: 0; /* Remove extra margin */
+        }
+
+
+        /* Hide any empty divs or containers */
+        div:empty {
+            display: none;
+        }
+    }
     </style>
 </head>
 <body>
