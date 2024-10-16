@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Combined HTML Files</title>
     <style>
+
         body {
             font-family: 'Times New Roman', serif;
             margin: 0;
@@ -77,6 +78,12 @@
             font-size: 18px;
             margin-bottom: 10px;
         }
+		
+		.test2-mail-layout {
+            text-align: left;
+            font-size: 12px;
+            line-height: 1.0;
+        }
 
         /* Test3.html Styles */
         .test3-header {
@@ -92,8 +99,8 @@
 
         .test3-course-info {
             text-align: right;
-            font-size: 14px;
-            line-height: 2.0;
+            font-size: 13px;
+            line-height: 1.0;
         }
 
         /* Table styles */
@@ -214,6 +221,7 @@
             display: none;
         }
     }
+
     </style>
 </head>
 <body>
@@ -303,19 +311,11 @@
             <p class="form-instructions">Enclosed:</p>
             <div class="enclosed">
                 <div class="column">
-                    <table class="table">
-                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Workshop handouts</td></tr>
-                        <tr><td>1</td><td>Agency Roster</td></tr>
-                        <tr><td>1</td><td>Section name tent</td></tr>
-                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Name placards</td></tr>
-                    </table>
-                </div>
-                <div class="column">
-                    <table class="table">
-                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Registration forms</td></tr>
-                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Evaluation forms</td></tr>
-                        <tr><td>1</td><td>Business return envelope</td></tr>
-                        <tr><td></td><td>Additional handout</td></tr>
+                    <table class="table" border="0">
+                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Workshop handouts</td><td><img src="E:\OneDrive - University of California, Davis\Pictures\100-24.png"></td><td><strong><<Projected_Enrollments>></strong></td><td>Registration forms</td></tr>
+                        <tr><td>1</td><td>Agency Roster</td><td><img src="E:\OneDrive - University of California, Davis\Pictures\100-24.png"></td><td><strong><<Projected_Enrollments>></strong></td><td>Evaluation forms</td></tr>
+                        <tr><td>1</td><td>Section name tent</td><td><img src="E:\OneDrive - University of California, Davis\Pictures\100-24.png"></td><td>1</td><td>Business return envelope</td></tr>
+                        <tr><td><strong><<Projected_Enrollments>></strong></td><td>Name placards</td><td><img src="E:\OneDrive - University of California, Davis\Pictures\100-24.png"></td><td></td><td>Additional handout</td></tr>
                     </table>
                 </div>
             </div>
@@ -324,20 +324,18 @@
             <p>Participants should complete the enclosed registration and evaluation forms using pens or pencils. Trainers will instruct the participants about how to complete the forms.</p>
             <p>Please return <strong>ALL</strong> the above forms to our office within one week of the workshop completion using the enclosed envelope. Return any unused forms and books and recycle any unused handouts.</p>
 
-            <div class="mail-layout">
+            <div class="test2-mail-layout">
                 <div class="mail-to">Mail to:</div>
                 <div class="mail-address address">
-                    <p>Center for Human Services</p>
-                    <p>UC Davis Continuing and Professional Education</p>
-                    <p>463 California Ave, Room 1130</p>
-                    <p>Davis, CA 95616</p>
+                    <p>Center for Human Services</br>
+                    UC Davis Continuing and Professional Education</br>
+                    463 California Ave, Room 1130</br>
+                    Davis, CA 95616</p>
                 </div>
             </div>
-
-            <p>If you have questions, please call me at the above number. Thank you for your assistance.</p>
-
-            <div class="signature">
-                <p>Phone: (530) 757-8643</p>
+			<div class="signature">
+            <p>If you have questions, please call me at the above number. Thank you for your assistance.</br>
+                Phone: (530) 757-8643</p>
             </div>
         </div>
     </section>
@@ -345,25 +343,39 @@
     <!-- Test3.html Content -->
     <section>
         <div class="header">
-            <div class="test3-logo">
-                <img src="images.png" alt="UC Davis Logo">
-                <div>Continuing and <br> Professional Education | Human Services</div>
-            </div>
-            <div class="test3-course-info">
-                <div>Course Name: <b> <<Actual_Name>> </b></div>
-                <div>Date: <b> <<Start_Date>> </b></div>
-                <div>Time: <b>  <<Time_of_Course>> </b></div>
-                <div>Instructor: <b> <<Instructor>> </b></div>
-                <div>Location: <b> <<Location>> </b></div>
-                <div>Section #: <b> <<Section_Number>> </b></div>
-            </div>
+            <table class="table">
+				<tr>
+					<div class="header">
+						<td>
+								<div class="test3-logo">
+									<img src="images.png" alt="UC Davis Logo">
+									<div>Continuing and <br> Professional Education | Human Services</div>
+								</div>
+							
+						</td>
+						<td><img src="E:\OneDrive - University of California, Davis\Pictures\100-24.png"></td>
+						<td>
+							<div class="test3-course-info">
+								<p>Course Name: <b> <<Actual_Name>> </b></br>
+								Date: <b> <<Start_Date>> </b></br>
+								Time: <b>  <<Time_of_Course>> </b></br>
+								Instructor: <b> <<Instructor>> </b></br>
+								Location: <b> <<Location>> </b></br>
+								Section #: <b> <<Section_Number>> </b></p>
+							</div>
+						</td>
+				
+					</div>
+				</tr>
+
+			</table>
         </div>
 
         <table>
             <thead>
                 <tr>
                     <th class="number">#</th>
-                    <th class="name-email">First Name, Last Name <br> E-Mail Address</th>
+                    <th class="name-email">First Name, Last Name <br> Work E-Mail Address</th>
                 </tr>
             </thead>
             <tbody>
@@ -372,8 +384,6 @@
                     <td class="name-email">
                         <table class="nested-table">
                             <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
                                 <td></td><td></td><td></td><td></td><td></td>
                                 <td></td><td></td><td></td><td></td><td></td>
                                 <td></td><td></td><td></td><td></td><td></td>
@@ -705,237 +715,7 @@
                         </table>
                     </td>
                 </tr>
-                                <tr>
-                    <td class="number">17</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                                <tr>
-                    <td class="number">18</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                                <tr>
-                    <td class="number">19</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                                <tr>
-                    <td class="number">20</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-     <tr>
-                    <td class="number">21</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-     <tr>
-                    <td class="number">22</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-     <tr>
-                    <td class="number">23</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-     <tr>
-                    <td class="number">24</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-     <tr>
-                    <td class="number">25</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-     <tr>
-                    <td class="number">26</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-     <tr>
-                    <td class="number">27</td>
-                    <td class="name-email">
-                        <table class="nested-table">
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                            <tr>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                                <td></td><td></td><td></td><td></td><td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
+                                
 
             </tbody>
         </table>
